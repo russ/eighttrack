@@ -23,6 +23,15 @@ EightTrack.use_tape("in-a-gadda-da-vita") do
 end
 ```
 
+Customize the location of where the tapes are stored. The default is `spec/fixtures/eightracks`.
+
+```
+EightTrack.configure do
+  settings.tape_library_dir = "/some/path/eightracks"
+end
+
+```
+
 ## Contributing
 
 1. Fork it ( https://github.com/russ/EightTrack/fork )
