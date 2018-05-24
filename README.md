@@ -16,13 +16,12 @@ dependencies:
 
 ```crystal
 require "eighttrack"
+require "http/client"
+
+EightTrack.use_tape("in-a-gadda-da-vita") do
+  response = HTTP::Client.get("https://ipapi.co/8.8.8.8/json")
+end
 ```
-
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
 
 ## Contributing
 
