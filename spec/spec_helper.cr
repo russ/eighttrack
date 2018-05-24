@@ -1,2 +1,2 @@
 require "spec"
-require "../src/EightTrack"
+require "../src/eighttrack"
