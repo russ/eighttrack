@@ -9,6 +9,12 @@ module EightTrack
     setting tape_library_dir : String = "spec/fixtures/eighttracks"
   end
 
+  def self.record
+    self.record = true
+    yield
+    self.record = false
+  end
+
   # The name of the tape
   def self.tape_name
     @@tape_name
@@ -23,7 +29,7 @@ module EightTrack
     @@tape_name = tape_name
     @@sequence = 0
 
-    reset_casset(tape_name) if record?
+    reset_casset(@@tape_name.not_nil!) if record?
 
     block.call
     reset!
@@ -43,10 +49,13 @@ module EightTrack
   end
 
   private def self.reset_casset(casset)
-    dir = File.join(EightTrack.settings.tape_library_dir, casset)
-    Dir.open(dir).each do |file|
-      if file =~ /\.vcr$/
-        File.delete(File.join(dir, file))
+    casset_dir_path = File.join(EightTrack.settings.tape_library_dir, casset)
+
+    if Dir.exists?(casset_dir_path)
+      Dir.open(casset_dir_path).each do |file|
+        if file =~ /\.vcr$/
+          File.delete(File.join(casset_dir_path, file))
+        end
       end
     end
   end

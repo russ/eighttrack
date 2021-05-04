@@ -4,11 +4,11 @@ version: 0.1.0
 authors:
   - Russ Smith <russ@bashme.org>
 
-crystal: 0.24.2
+crystal: ">=0.36.1, < 2.0.0"
 
 license: MIT
 
 dependencies:
   habitat:
     github: luckyframework/habitat
-    branch: master
+    version: ~> 0.4.7
