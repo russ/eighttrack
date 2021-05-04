@@ -23,7 +23,7 @@ EightTrack.use_tape("in-a-gadda-da-vita") do
 end
 ```
 
-Customize the location of where the tapes are stored. The default is `spec/fixtures/eightracks`.
+Customize the location of where the tapes are stored. The default is `spec/fixtures/eighttracks`.
 
 ```
 EightTrack.configure do
